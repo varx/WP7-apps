@@ -1,0 +1,84 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="liveCountDown.help"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="live倒计时" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="帮助" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock Height="552" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,6,0,0" Name="textBlock1" VerticalAlignment="Top" Width="450">
+                <Run FontSize="26">
+                    使用说明：
+                </Run>
+                <LineBreak/>
+                <Run>
+                    点击日期或者时间输入框设置时间，设置其中任意一项，另一项会自动更新。倒计时上限为99天。
+                </Run>
+                <LineBreak/>
+                <Run>
+                    点击启动按钮（第一个），会在桌面新建或者更新（如果已经建立）一个磁贴，正面数字为倒计时日期，反面内容为设置的提醒。
+                </Run>
+                <LineBreak/>
+                <Run>
+                    点击删除按钮（第二个），会清除设置的磁贴和关闭后台进程。
+                </Run>
+                <LineBreak/>
+                <Run>
+                    退出设置按返回键即可。
+                </Run>
+                <LineBreak/>
+                <LineBreak/>
+                <Run FontSize="26">
+                    注意事项：
+                </Run>
+                <LineBreak/>
+                <Run>
+                    请不要在系统设置中关闭后台任务，否则将无法更新磁贴。
+                </Run>
+                <LineBreak/>
+                <Run>
+                    提醒内容最多20个中文字符，超出部分将无法在磁贴显示。
+                </Run>
+                <LineBreak/>
+                <Run>
+                    如需取消磁贴请在本应用中取消。
+                </Run>
+            </TextBlock>
+        </Grid>
+    </Grid>
+ 
+    <!--演示 ApplicationBar 用法的示例代码-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="按钮 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="按钮 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="菜单项 1"/>
+                <shell:ApplicationBarMenuItem Text="菜单项 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

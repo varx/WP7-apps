@@ -1,0 +1,95 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="domainCheck.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--枢轴控件-->
+        <controls:Pivot Title="域名助手" x:Name="rootPivot" >
+            <!--枢轴项一-->
+            <controls:PivotItem Header="域名查询">
+                <StackPanel>
+                    <TextBox Height="72" Name="textBoxDomain" Text="" Width="460" >
+                        <TextBox.InputScope>
+                            <InputScope>
+                                <InputScopeName NameValue="Url"/>
+                            </InputScope>
+                        </TextBox.InputScope>
+                    </TextBox>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel x:Name="PanelSuffix1" Grid.Column="0" Height="460" Width="122">
+                            <CheckBox Content=".com" Height="65" Width="120" />
+                            <CheckBox Content=".co" Height="65" Width="120"  />
+                            <CheckBox Content=".mobi" Height="65" Width="122" />
+                            <CheckBox Content=".info" Height="65" Width="120"  />
+                            <CheckBox Content=".tv" Height="65" Width="120" />
+                            <CheckBox Content=".hk" Height="65" Width="120" />
+                            <CheckBox Content=".asia" Height="65" Width="120" />
+                        </StackPanel>
+                        <StackPanel x:Name="PanelSuffix2" Grid.Column="1" Height="460" Width="120">
+                            <CheckBox Content=".cn" Height="65" Width="120" />
+                            <CheckBox Content=".net" Height="65" Width="120" />
+                            <CheckBox Content=".so" Height="65" Width="120" />
+                            <CheckBox Content=".tel" Height="65" Width="120" />
+                            <CheckBox Content=".biz" Height="65" Width="120" />
+                            <CheckBox Content=".cc" Height="65" Width="120" />
+                            <CheckBox Content=".me" Height="65" Width="120" />
+                        </StackPanel>
+                        <StackPanel x:Name="PanelSuffix3" Grid.Column="2" Height="460" Width="150">
+                            <CheckBox Content=".net.cn" Height="70" Width="150" />
+                            <CheckBox Content=".com.cn" Height="70" Width="150" />
+                            <CheckBox Content=".gov.cn" Height="70" Width="150" />
+                            <CheckBox Content=".org.cn" Height="70" Width="150" />
+                            <CheckBox Content=".name" Height="70" Width="150" />
+                            <CheckBox Content=".org" Height="70" Width="150" />
+                        </StackPanel>
+                    </Grid>
+                       
+                </StackPanel>
+            </controls:PivotItem>
+ 
+            <!--枢轴项二-->
+            <controls:PivotItem Header="who is"> 
+                <StackPanel>
+                    <TextBox Height="71" Name="textBoxWho" Text="" Width="460" >
+                        <TextBox.InputScope>
+                            <InputScope>
+                                <InputScopeName NameValue="Url"/>
+                            </InputScope>
+                        </TextBox.InputScope>
+                    </TextBox>
+                </StackPanel>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+ 
+    <!--演示 ApplicationBar 用法的示例代码-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.feature.search.rest.png" Text="查询" Click="search"/>
+            <!--<shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="按钮 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="菜单项 1"/>
+                <shell:ApplicationBarMenuItem Text="菜单项 2"/>
+            </shell:ApplicationBar.MenuItems>-->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

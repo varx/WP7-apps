@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="curriculumSchedule.TMPL.Edit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" Loaded="init" BackKeyPress="PhoneApplicationPage_BackKeyPress">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="快捷课表" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="编辑" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,35,12,0">
+            <StackPanel Width="350">
+                <StackPanel Orientation="Vertical" Height="80">
+                    <TextBlock HorizontalAlignment="Left"  Text="名称:" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxName" Text="{Binding Name,Mode=OneTime}" Height="70"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left"  Text="教室:" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxRoom" Text="{Binding Room,Mode=OneTime}" Height="70" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left" Text="教师:" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxTeacher" Text="{Binding Teacher,Mode=OneTime}" Height="70"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock  HorizontalAlignment="Left" Text="备注:" VerticalAlignment="Center" />
+                    <TextBox x:Name="TextBoxComment" Text="{Binding Comment,Mode=OneTime}" Height="70" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+ 
+    <!--演示 ApplicationBar 用法的示例代码-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/ICON/appbar.check.rest.png" Click="AppBarOk_Click" Text="确定"/>
+            <shell:ApplicationBarIconButton IconUri="/ICON/appbar.cancel.rest.png" Click="AppBarCancel_Click" Text="取消"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

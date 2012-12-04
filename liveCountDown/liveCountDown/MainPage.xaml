@@ -1,0 +1,65 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="liveCountDown.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="live倒计时" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,55,12,0">
+            <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="100" Width="450">
+                    <TextBlock FontSize="40"  HorizontalAlignment="Left" Name="textBlock2" Text="距" Margin="100,0,10,0" Height="60" />
+                    <toolkit:DatePicker  Name="datePickerDate" HorizontalAlignment="Center" ValueChanged="pickerChange" Height="60" />
+            </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="150" Width="450">
+                    <TextBlock FontSize="48" HorizontalAlignment="Left" Name="textBlock1" Text="还有" Margin="74,0,10,0" Height="60" />
+                <TextBox FontSize="56" InputMethod.PreferredImeState="On" HorizontalAlignment="Center"  Name="textBoxDay" Text="0"  LostFocus="textBoxDay_LostFocus" MaxLength="2" Width="100" Height="100" GotFocus="textBoxDay_GotFocus">
+                    <TextBox.InputScope>
+                        <InputScope>
+                            <InputScopeName NameValue="Number"/>
+                        </InputScope>
+                    </TextBox.InputScope>
+                </TextBox>
+                    <TextBlock HorizontalAlignment="Right"  Name="天" Text="天"  FontSize="48" Margin="20,0,0,0" Height="60" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Height="250" Width="450" Margin="0,30,0,0" >
+                    <TextBlock FontSize="26"  Height="39" HorizontalAlignment="Left"  Name="textBlock3" Text="说点什么..." VerticalAlignment="Top" Width="140" />
+                <TextBox Height="169" HorizontalAlignment="Center"  Name="textBoxMsg" Text="" VerticalAlignment="Top" Width="257" MaxLength="20" TextWrapping="Wrap" AcceptsReturn="True" />
+                    <TextBlock Height="29" HorizontalAlignment="Right" Name="textBlockWarm" Foreground="Gray" Text="请控制在20字符，4行内" Width="240" />
+                </StackPanel>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+ 
+    <!--演示 ApplicationBar 用法的示例代码-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/AppIcon/appbar.check.rest.png" Text="启动" Click="IconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/AppIcon/appbar.delete.rest.png" Text="删除" Click="IconDelete_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/AppIcon/appbar.questionmark.rest.png" Text="帮助" Click="IconHelp_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
